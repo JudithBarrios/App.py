@@ -1,0 +1,41 @@
+import os
+from openai import OpenAI, OpenAIError
+import json
+import logging
+
+class LLMHandler:
+    def __init__(self):
+        self.api_key = os.environ.get("OPENAI_API_KEY")
+        self.api_available = False
+        self.error_message = None
+        self.client = None
+        self.model = "gpt-3.5-turbo"
+        self.local_available = False
+        self.local_summarizer = None
+
+        # Initialize OpenAI client if API key is available
+        if self.api_key:
+            try:
+                self.client = OpenAI(api_key=self.api_key)
+                # Test API connection
+                self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": "test"}],
+                    max_tokens=5
+                )
+                self.api_available = True
+            except Exception as e:
+                self.error_message = self._format_error_message(e)
+
+    # Main LLM functions for text analysis
+    def generate_summary(self, text):
+        """Generate a summary of the financial text using OpenAI."""
+        # Implementation details...
+
+    def extract_key_insights(self, text):
+        """Extract key financial insights using OpenAI."""
+        # Implementation details...
+
+    def answer_question(self, context, question):
+        """Answer questions about the text using OpenAI."""
+        # Implementation details...
