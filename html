@@ -1,0 +1,51 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finance Insights App</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+        }
+        label, textarea {
+          display: block;
+          margin-top: 10px;
+        }
+        textarea {
+          width: 100%;
+          height: 100px;
+        }
+        .result-box {
+          margin-top: 20px;
+          border: 1px solid #ccc;
+          padding: 10px;
+        }
+        .summary {
+          margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Finance Insights App</h1>
+    <form method="POST">
+        <label for="user_text">Paste your finance-related text/article here:</label>
+        <textarea id="user_text" name="user_text" placeholder="Type or paste your text...">{{ user_text }}</textarea>
+        <button type="submit">Analyze</button>
+    </form>
+    
+    {% if sentiment_result %}
+    <div class="result-box">
+        <h3>Sentiment Classification:</h3>
+        <p><strong>{{ sentiment_result }}</strong></p>
+    </div>
+    {% endif %}
+    
+    {% if llm_summary %}
+    <div class="result-box summary">
+        <h3>LLM Summary:</h3>
+        <p>{{ llm_summary }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
