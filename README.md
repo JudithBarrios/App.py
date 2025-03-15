@@ -5,12 +5,12 @@ A Streamlit-based web application that performs advanced natural language proces
 
 ## Features
 
-- 📊 Sentiment Analysis using VADER
-- 📝 Text Summarization (OpenAI GPT / Local)
-- 🔍 Key Insights Extraction
-- ❓ Q&A capabilities for financial texts
-- 📈 Interactive visualizations
-- 🔄 Fallback processing when API is unavailable
+- Sentiment Analysis using VADER
+- Text Summarization (OpenAI GPT / Local)
+- Key Insights Extraction
+- Q&A capabilities for financial texts
+- Interactive visualizations
+- Fallback processing when API is unavailable
 
 ## Prerequisites
 
